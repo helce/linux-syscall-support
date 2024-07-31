@@ -422,25 +422,23 @@ struct kernel_stat64 {
 };
 #elif defined(__e2k__)
 struct kernel_stat64 {
-  unsigned long long st_dev;
-  unsigned long long st_ino;
+  unsigned long      st_dev;
+  unsigned long      st_ino;
   unsigned int       st_mode;
   unsigned int       st_nlink;
   unsigned int       st_uid;
   unsigned int       st_gid;
-  unsigned long long st_rdev;
-  long long          st_size;
-  int                st_blksize;
-  int                __pad2;
-  unsigned long long st_blocks;
+  unsigned long      st_rdev;
+  unsigned long      st_size;
+  unsigned int       st_blksize;
+  unsigned int       __unused1;
+  unsigned long      st_blocks;
   int                st_atime_;
   unsigned int       st_atime_nsec_;
   int                st_mtime_;
   unsigned int       st_mtime_nsec_;
   int                st_ctime_;
   unsigned int       st_ctime_nsec_;
-  unsigned int       __unused4;
-  unsigned int       __unused5;
 };
 #else
 struct kernel_stat64 {
@@ -698,14 +696,14 @@ struct kernel_stat {
   unsigned long      __unused5;
 };
 #elif defined(__e2k__)
-typedef unsigned long kernel_blkcnt_t;
-typedef unsigned long kernel_blksize_t;
-typedef unsigned long kernel_dev_t;
+typedef long kernel_blkcnt_t;
+typedef long kernel_blksize_t;
+typedef unsigned int kernel_dev_t;
 typedef unsigned int kernel_gid_t;
 typedef unsigned long kernel_ino_t;
 typedef unsigned int kernel_mode_t;
-typedef unsigned long kernel_nlink_t;
-typedef unsigned long kernel_off_t;
+typedef unsigned int kernel_nlink_t;
+typedef long kernel_off_t;
 typedef unsigned long kernel_time_t;
 typedef unsigned int kernel_uid_t;
 struct kernel_stat {
